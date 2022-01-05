@@ -1,0 +1,28 @@
+{
+  "name": "pow-blockchain",
+  "version": "1.0.0",
+  "description": "PoW-BlockChain.js est une blockchain à validation par Proof of Work écrit en javascript.",
+  "main": "Block.js",
+  "scripts": {
+    "test": "jest --watchAll",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cassandra-White/PoW-BlockChain.js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cassandra-White/PoW-BlockChain.js/issues"
+  },
+  "homepage": "https://github.com/Cassandra-White/PoW-BlockChain.js#readme",
+  "devDependencies": {
+    "jest": "^27.4.6"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  }
+}

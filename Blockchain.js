@@ -11,15 +11,15 @@ class Blockchain {
         return block;
     }
 
-    isValidChain(){
+    isValidChain(chain){
          let i = 1;
 
-        if(JSON.stringify(this.chain[0]) !== JSON.stringify(Block.firstBlock()))
+        if(JSON.stringify(chain[0]) !== JSON.stringify(Block.firstBlock()))
             return false
 
-            while ( i < this.chain.length) {
-                const currentBlock = this.chain[i];
-                const prevBlock = this.chain[i-1];
+            while ( i < chain.length) {
+                const currentBlock = chain[i];
+                const prevBlock = chain[i-1];
     
                 if (currentBlock.hash !== currentBlock.getHash() || prevBlock.hash !== currentBlock.lastHash) {
                     return false;
@@ -30,7 +30,20 @@ class Blockchain {
         return true;
     }
 
-    
+    replaceChain(newChain){
+        if ( newChain.length <= this.chain.length){
+            console.log("Error : La chaine est trop courte par rapport à l'actuel. Aucun changement")
+            return;
+        }
+        else if (!this.isValidChain(newChain)) {
+            console.log("Error : La chaine n'est pas valide. Aucun changement.");
+            return
+        }
+
+        console.log("Remplacement de la chaine actuel par la nouvelle")
+        this.chain = newChain;
+    };
+
 }
 
 module.exports = Blockchain;
@@ -40,14 +53,17 @@ module.exports = Blockchain;
 
 // block.addBlock(["je suis un test", 1, "3 datas"]);
 // block.addBlock(["je suis un second test", 2, "là aussi" ]);
+// const chain2 = block;
 
-// block.addBlock(["popo", 65, "Sprout"]);
-// block.addBlock(["argent :", 20, "€" ]);
-//  console.log(block.chain[1]);
-// block.chain[1].data = ["0"];
+// chain2.addBlock(["popo", 65, "Sprout"]);
+// chain2.addBlock(["argent :", 20, "€" ]);
+
+
+// console.log(chain2.chain);
+// console.log("taille block :",block.chain.length);
+// console.log("taille chaine2 :",chain2.chain.length);
+
+// console.log(block.replaceChain(chain2.chain));
 
 // console.log(block.chain);
-
-// console.log(block.isValidChain());
-
 

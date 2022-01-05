@@ -11,6 +11,7 @@ class Block {
     };
 
     static firstBlock(){
+        // return new this('firstBlock time','----',SHA256('C455AdrA-Wh173'),[],0,4);
         return new this('firstBlock time','----',SHA256('C455AdrA-Wh173'),[],0,4);
     };
 
