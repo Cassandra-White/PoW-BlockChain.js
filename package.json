@@ -5,7 +5,7 @@
   "main": "Block.js",
   "scripts": {
     "test": "jest --watchAll",
-    "start": "nodemon app.js"
+    "start": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,9 @@
     "jest": "^27.4.6"
   },
   "dependencies": {
-    "body-parser": "^1.19.1",
-    "express": "^4.17.2",
-    "nodemon": "^2.0.15"
+    "bootstrap": "^5.1.3",
+    "crypto-js": "^4.1.1",
+    "elliptic": "^6.5.4",
+    "react-bootstrap": "^2.1.0"
   }
 }
