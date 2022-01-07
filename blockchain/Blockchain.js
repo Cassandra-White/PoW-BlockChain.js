@@ -5,10 +5,13 @@ const EC = require('elliptic').ec;
 const ec = new EC('secp256k1');
 
 
+
+
+
 class Blockchain {
     constructor(){
         this.chain = [this.createGenesisBlock()];
-        
+        this.difficulty = 2;
         this.pendingTransactions = [];
         this.miningReward = 100;
     }

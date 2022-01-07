@@ -10,15 +10,16 @@ const BlockChainCard = (props) => (
           src='https://react.semantic-ui.com/images/avatar/large/steve.jpg'
         />
         <Card.Header>Block N° {props.index} </Card.Header>
-        <Card.Header>2 {console.log(props)} </Card.Header>
+        {/* <Card.Header>2 {console.log(props)} </Card.Header> */}
         <Card.Meta>Nonce : {props.block.nonce}</Card.Meta>
         <Card.Description>
-          {
+          {/* {
+
             props.block.transactions.map((transaction, index) => {
                 return (<p key={index}>{transaction}</p>)
             })
             
-        }
+        } */}
         </Card.Description>
       </Card.Content>
       <Card.Content extra>

@@ -36,3 +36,5 @@ blockchain.miningPendingTransactions(publicKeyWallet);
 console.log("\ntransaction valid :", blockchain.isChainValid());
 
 console.log('La balance du mineur est de : ', blockchain.getBalanceOfAddress(publicKeyWallet));
+
+console.log(blockchain.chain[1]);

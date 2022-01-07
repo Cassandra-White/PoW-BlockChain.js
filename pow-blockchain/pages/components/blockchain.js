@@ -5,7 +5,7 @@ import {Blockchain} from '../../../blockchain/Blockchain';
 import {Block } from '../../../blockchain/Block';
 import EC from 'elliptic';
 import TransactionTab from './TransactionsTab';
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Button, Card, Image, Grid } from 'semantic-ui-react'
 
 import { Table } from 'semantic-ui-react'
 
@@ -22,7 +22,13 @@ export default class extends Component {
 
     this.generateWalletKeys();
     this.BlockchainInstance.miningPendingTransactions("mineur-address");
-    
+    this.BlockchainInstance.miningPendingTransactions("mineur-address");
+
+    this.BlockchainInstance.miningPendingTransactions("mineur-address");
+    this.BlockchainInstance.miningPendingTransactions("mineur-address");
+
+    this.BlockchainInstance.miningPendingTransactions("mineur-address");
+    this.BlockchainInstance.miningPendingTransactions("mineur-address");
   }
 
   getBlocks = () => {
@@ -55,21 +61,17 @@ handleItemClick = (e, { name }) => this.setState({ activeItem: name });
    
       // console.log(this.state.selectedBlock);
     return (
-        <div>
-        
-        {/* {console.log("blocks",this.state.blocks)} */}
-         <div className={styles.grid}>
+        <div className={styles.container}>
+          <Grid  >
+          <Grid.Row>
         {
             this.state.blocks.map((block, index) => {
                return (
                 
-                    // <BlockChainCard
-                    // name={index}
-                    // block={this.state.blocks[this.state.activeItem]}
-                    // onClick={this.handleItemClick}
-                    // key={index} block={block} index={index} />
-
+                   
+                    <Grid.Column width={5}>
                     <Card style={{margin : "0.5rem"}}  
+                    key={index}
                     name={index}
                     active={this.state.activeItem === 'editorials'}
                     onClick={this.handleItemClick}
@@ -77,10 +79,12 @@ handleItemClick = (e, { name }) => this.setState({ activeItem: name });
                     >
                       <BlockChainCard key={index} block={block} index={index} />
                     </Card>
+                    </Grid.Column>
                 )
             })
         }
-
+        </Grid.Row>
+      </Grid>
     <Table celled>
         
         <Table.Header>
@@ -106,7 +110,7 @@ handleItemClick = (e, { name }) => this.setState({ activeItem: name });
     </Table>
         
 
-      </div>
+      
       </div>
     );
   }
