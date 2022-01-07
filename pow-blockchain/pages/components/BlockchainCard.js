@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Button, Card, Image, Grid } from 'semantic-ui-react'
 
 const BlockChainCard = (props) => (
     <Card >

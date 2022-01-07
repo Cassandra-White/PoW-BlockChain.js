@@ -23,8 +23,15 @@ const TransactionTab = (props) => (
                             <Table.Cell>{index}</Table.Cell>
                             <Table.Cell>{transaction.fromAddress === null ? 'Le System' : transaction.fromAddress}</Table.Cell>
                             <Table.Cell>{transaction.toAddress}</Table.Cell>
-                            <Table.Cell>{transaction.amount}</Table.Cell>
-                            <Table.Cell>{props.block.timestamp}</Table.Cell>
+                            <Table.Cell>
+                                <div>{transaction.amount}</div>
+                                <span style={{fontSize:"smaller"}}>{transaction.fromAddress === null ? 'Récomponse mineur' : ""}</span>
+                            </Table.Cell>
+                            <Table.Cell>
+                                <div>{props.block.timestamp}</div>
+                                <span style={{fontSize:"smaller"}}>{
+                                        new Intl.DateTimeFormat('en-GB', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(props.block.timestamp)}</span>
+                            </Table.Cell>
                             <Table.Cell>{transaction.isValid() ? 'oui' : 'non'}</Table.Cell>
 
                             {/* <Table.Cell selectable>
