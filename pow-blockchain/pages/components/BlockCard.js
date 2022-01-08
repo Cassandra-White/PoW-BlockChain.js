@@ -4,11 +4,11 @@ import { Button, Card, Image, Grid } from 'semantic-ui-react'
 const BlockChainCard = (props) => (
     <Card >
       <Card.Content>
-        <Image
+        {/* <Image
           floated='right'
           size='mini'
           src='https://react.semantic-ui.com/images/avatar/large/steve.jpg'
-        />
+        /> */}
         <Card.Header>Block N° {props.index} </Card.Header>
         {/* <Card.Header>2 {console.log(props)} </Card.Header> */}
         <Card.Meta>Nonce : {props.block.nonce}</Card.Meta>

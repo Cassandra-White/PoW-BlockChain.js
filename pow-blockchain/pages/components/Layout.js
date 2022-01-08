@@ -5,9 +5,12 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
+import blockchain from './Layout2'
 // import Blockchain from './blockchain';
 
-const Layout = (props) => {
+export function Layout (props) {
+
+    
   return (
     <div className={styles.container}>
         <Head>
@@ -16,8 +19,8 @@ const Layout = (props) => {
             <link rel="icon" href="/favicon.ico" />
         </Head>
       <Header />
-      <Container className="ui center  container" >{props.children}</Container>
-
+      <Container className="ui center  container">{props.children}</Container>
+      
       <Footer />
     </div>
 

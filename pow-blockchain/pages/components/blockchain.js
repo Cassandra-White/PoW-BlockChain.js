@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BlockChainCard from './BlockchainCard'
+import BlockChainCard from './BlockCard'
 import styles from '../../styles/Home.module.css'
 import {Blockchain} from '../../../blockchain/Blockchain';
 import {Block } from '../../../blockchain/Block';
