@@ -65,6 +65,7 @@ onClickGetPendingTransactions = () => {
   render() {
     // console.log(this.TransactionInstance);
     // console.log(this.state.walletKeys.publicKey);
+    
     return (
       <>
         <div>
