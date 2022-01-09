@@ -3,7 +3,15 @@ import React , {Component} from "react";
 import { Menu } from 'semantic-ui-react'
 
 export default class Header extends Component {
-  state = {}
+  state={
+    activeMenu : "Blockscard"
+  }
+  handleItemClick = (e, { name }) => {
+    console.log(name);
+    this.setState({ activeMenu: name })
+    this.props.updateActiveMenu(name);
+  };
+
 
   render() {
     return (
@@ -12,26 +20,34 @@ export default class Header extends Component {
           <Menu.Item
             name='home'
           >
-            Pow-B.js
+            Pow-Blockchain.js
           </Menu.Item>
         </Link>
         <Menu.Menu position="right">
         
-        <Link href="/autre">
         <Menu.Item
-          name='reviews'
-          position="right"
+          name='Blockscard'
+          active={this.props.activeMenu === 'Blockscard'}
+          onClick={this.handleItemClick}
         >
-          autres
+          La Blockchain
         </Menu.Item>
        
-        </Link>
+   
 
         <Menu.Item
-          name='addBlock'
-          position="right"
+          name='Params'
+          active={this.props.activeMenu === 'Params'}
+          onClick={this.handleItemClick}
         >
-          Ajouter un Block
+          Paramètres
+        </Menu.Item>
+        <Menu.Item
+          name='AddTransaction'
+          active={this.props.activeMenu === 'AddTransaction'}
+          onClick={this.handleItemClick}
+        >
+          Créer une transaction
         </Menu.Item>
         </Menu.Menu>
 

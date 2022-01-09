@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import EC from 'elliptic';
 import {Blockchain} from '../../../blockchain/Blockchain';
+import {Transaction} from '../../../blockchain/Transaction';
+import TransactionTab from './TransactionsTab';
 
 class BlockChain extends Component {
     constructor(props) {
@@ -11,13 +13,13 @@ class BlockChain extends Component {
         this.BlockchainInstance.difficulty = 2;
         this.generateWalletKeys();
         this.BlockchainInstance.miningPendingTransactions("mineur-address");
-        this.BlockchainInstance.miningPendingTransactions("mineur-address");
+        // this.BlockchainInstance.miningPendingTransactions("mineur-address");
     
-        this.BlockchainInstance.miningPendingTransactions("mineur-address");
-        this.BlockchainInstance.miningPendingTransactions("mineur-address");
+        // this.BlockchainInstance.miningPendingTransactions("mineur-address");
+        // this.BlockchainInstance.miningPendingTransactions("mineur-address");
     
-        this.BlockchainInstance.miningPendingTransactions("mineur-address");
-        this.BlockchainInstance.miningPendingTransactions("mineur-address");
+        // this.BlockchainInstance.miningPendingTransactions("mineur-address");
+        // this.BlockchainInstance.miningPendingTransactions("mineur-address");
 
         this.state = {
             blocks: this.getBlocks(),
@@ -45,10 +47,20 @@ class BlockChain extends Component {
   
     }
 
+    getPendingTransactions(){
+        return this.BlockchainInstance.pendingTransactions;
+    }
+
+    miningPendingTransactions(){
+        this.BlockchainInstance.miningPendingTransactions(
+            this.walletKeys[0].publicKey
+        )
+    }
+
     render() {
         return (
             <div>
-                <h1>block</h1>
+                
             </div>
         );
     }

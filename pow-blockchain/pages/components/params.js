@@ -7,15 +7,19 @@ export default class Params extends Component {
 // export default function Params(props) {
   state = {
     difficulty : 2,
-    miningReward: 100
+    miningReward: 100,
+    difficultySend : 2,
+    miningRewardSend : 100,
 }
 
 onSubmitDifficulty = async (event) => {
+    this.setState({difficultySend : this.state.difficulty});
     this.props.blockchain.BlockchainInstance.difficulty = this.state.difficulty;
     console.log(this.props.blockchain.BlockchainInstance.difficulty);
 };
 
 onSubmitMiningReward = async (event) => {
+  this.setState({miningRewardSend : this.state.miningReward});
   this.props.blockchain.BlockchainInstance.miningReward = this.state.miningReward;
   console.log(this.props.blockchain.BlockchainInstance.miningReward);
 };

@@ -5,11 +5,11 @@ import {Blockchain} from '../../../blockchain/Blockchain';
 import {Block } from '../../../blockchain/Block';
 import EC from 'elliptic';
 import TransactionTab from './TransactionsTab';
-import { Button, Card, Image, Grid } from 'semantic-ui-react'
+import { Button, Card, Image, Grid, Transition } from 'semantic-ui-react'
 
 import { Table } from 'semantic-ui-react'
 
-import Params from './params';
+import Params from './Params';
 import Informations from './Informations';
 
 export default class extends Component {
@@ -21,6 +21,7 @@ export default class extends Component {
   constructor() {
     super();
     this.BlockchainInstance = new Blockchain();
+    this.Transaction = new Transition();
     this.bloblo = new Blockchain();
     
     this.walletKeys = [];

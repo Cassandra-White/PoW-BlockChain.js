@@ -7,7 +7,6 @@ export default class Information extends Component {
     
 
     render(){
-        console.log(this.props.state);
     return (
         <>
         <div>
@@ -16,10 +15,10 @@ export default class Information extends Component {
             <Grid>
                 <Grid.Row>
                     <Grid.Column width={8} >
-                        <h4>Difficulté : {this.props.state.difficulty}</h4>
+                        <h4>Difficulté : {this.props.state.difficultySend}</h4>
                     </Grid.Column>
                     <Grid.Column width={8}>
-                    <h4>Récompence Mineurs : {this.props.state.miningReward}</h4>
+                    <h4>Récompence Mineurs : {this.props.state.miningRewardSend}</h4>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

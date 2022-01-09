@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import "semantic-ui-css/semantic.min.css";
 import { Container } from "semantic-ui-react";
 import Header from "./Header";
@@ -8,9 +8,17 @@ import styles from '../../styles/Home.module.css'
 import blockchain from './Layout2'
 // import Blockchain from './blockchain';
 
-export function Layout (props) {
+class Layout extends Component {
+// export function Layout (props) {
+  state = {
+    activeMenu: "Blockscard",
+  };
 
-    
+  updateActiveMenu = (menu) => {
+    this.setState({ activeMenu: menu });
+    console.log();
+  };
+    render() {
   return (
     <div className={styles.container}>
         <Head>
@@ -18,8 +26,8 @@ export function Layout (props) {
             <meta name="description" content="Proof Of Work Blockchain in JS" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
-      <Header />
-      <Container className="ui center  container">{props.children}</Container>
+      <Header updateActiveMenu={this.updateActiveMenu}/>
+      <Container className="ui center  container" activeMenu={this.state.activeMenu}>{this.props.children}</Container>
       
       <Footer />
     </div>
@@ -27,4 +35,5 @@ export function Layout (props) {
     
   );
 };
+}
 export default Layout;

@@ -19,17 +19,24 @@ export default class Blockscard extends Component {
       <>
         <Grid>
           <Grid.Row>
-            {this.props.blockchain.BlockchainInstance.chain.map((block, index) => {
+            {this.props.blocks.map((block, index) => {
               return (
-                <Grid.Column width={5}>
+                <Grid.Column width={5} key={index + 1000}>
                   <Card
+                    
                     style={{ margin: "0.5rem" }}
-                    key={index}
+                    
                     name={index}
-                    active={this.state.activeItem === 'editorials'}
-                    onClick={this.handleItemClick}
+                    // active={this.state.activeItem === index}
+                    onClick={ () => {
+                      this.setState({activeItem : index})
+                      this.handleItemClick
+                    }
+                      
+                     
+                    }
                   >
-                    <BlockChainCard key={index} block={block} index={index} />
+                    <BlockChainCard block={block} index={index} />
                   </Card>
                 </Grid.Column>
               );
