@@ -71,10 +71,78 @@ onClickGetPendingTransactions = () => {
           <h2>Créer une Transaction :</h2>
           <p>Envoyez de l'argent à un autre compte</p>
 
-          <Grid>
+          <Grid style={{marginBottom:"2rem"}}>
             <Grid.Row>
               <Grid.Column width={8}>
                 <Form onSubmit={this.createTransaction}>
+                <Grid>
+                   <Grid.Row>
+                  <Grid.Column width={6}>
+                  <Form.Field>
+                    <label>Depuis :</label>
+                    
+                    <Input
+                    
+                      style={{ marginTop: "0.5rem" }}
+                      label="fromAddress"
+                      labelPosition="right"
+                      placeholder={this.state.fromAddress}
+                      onChange={(event) =>
+                        this.setState({
+                          fromAddress: event.target.value,
+                        })
+                      }
+                    />
+                  </Form.Field>
+
+                  </Grid.Column>
+                  <Grid.Column width={6}>
+                  <Form.Field>
+                    <label>A :</label>
+                    <Input
+                      style={{ marginTop: "0.5rem" }}
+                      label="toAddress"
+                      labelPosition="right"
+                      placeholder={this.state.toAddress}
+                      onChange={(event) =>
+                        this.setState({
+                          toAddress: event.target.value,
+                        })
+                      }
+                    />
+                  </Form.Field>
+                  </Grid.Column>
+                  <Grid.Column width={6}>
+                  <Form.Field>
+                    <label>Montant :</label>
+                    <Input
+                  
+                      style={{ marginTop: "0.5rem" }}
+                      label="amount"
+                      labelPosition="right"
+                      placeholder={this.state.amount}
+                      onChange={(event) =>
+                        this.setState({
+                          amount: parseInt(event.target.value),
+                        })
+                      }
+                    />
+                    
+                  </Form.Field>
+                  </Grid.Column>
+                  <Grid.Column width={16} style={{marginTop:'2rem'}}>
+                  <Button primary>Appliquer Changement</Button>
+                  </Grid.Column>
+                  </Grid.Row>
+                 
+                  </Grid>
+                </Form>
+              </Grid.Column>
+              <Grid.Column width={8}>
+                <Form onSubmit={this.createTransaction}>
+                <Grid>
+                   <Grid.Row>
+                  <Grid.Column width={6}>
                   <Form.Field>
                     <label>Depuis :</label>
                     <Input
@@ -90,6 +158,9 @@ onClickGetPendingTransactions = () => {
                       }
                     />
                   </Form.Field>
+
+                  </Grid.Column>
+                  <Grid.Column width={6}>
                   <Form.Field>
                     <label>A :</label>
                     <Input
@@ -104,7 +175,7 @@ onClickGetPendingTransactions = () => {
                       }
                     />
                   </Form.Field>
-
+                  </Grid.Column>
                   <Form.Field>
                     <label>Montant :</label>
                     <Input
@@ -122,7 +193,8 @@ onClickGetPendingTransactions = () => {
                     <Button primary>Appliquer Changement</Button>
                   </Form.Field>
 
-                  
+                  </Grid.Row>
+                  </Grid>
                 </Form>
               </Grid.Column>
             </Grid.Row>

@@ -44,6 +44,7 @@ class BlockChain extends Component {
             privateKey : key.getPrivate('hex'),
             
         });
+        return(this.key)
   
     }
 
