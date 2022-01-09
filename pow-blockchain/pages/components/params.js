@@ -6,34 +6,38 @@ import Information from "./Informations";
 export default class Params extends Component {
 // export default function Params(props) {
   state = {
-    difficulty : 2,
-    miningReward: 100,
-    difficultySend : 2,
-    miningRewardSend : 100,
+    difficulty : this.props.blockchain.BlockchainInstance.difficulty,
+    miningReward: this.props.blockchain.BlockchainInstance.miningReward,
+    difficultySend : this.props.blockchain.BlockchainInstance.difficulty,
+    miningRewardSend : this.props.blockchain.BlockchainInstance.miningReward,
+    messageMiningReward : '',
+    messageDifficulty : '',
 }
 
 onSubmitDifficulty = async (event) => {
-    this.setState({difficultySend : this.state.difficulty});
+   
     this.props.blockchain.BlockchainInstance.difficulty = this.state.difficulty;
+    this.setState({difficultySend : this.state.difficulty, messageMiningReward: ``, messageDifficulty: `La difficulté de minage est maintenant parametré sur ${this.state.difficulty}. Attention : Plus la difficulté est grande plus le block mets de temps à être trouvé. Pour ne pas créer un trop grand lag le maximum est 6`});
     console.log(this.props.blockchain.BlockchainInstance.difficulty);
 };
 
 onSubmitMiningReward = async (event) => {
-  this.setState({miningRewardSend : this.state.miningReward});
+  
   this.props.blockchain.BlockchainInstance.miningReward = this.state.miningReward;
-  console.log(this.props.blockchain.BlockchainInstance.miningReward);
+  this.setState({miningRewardSend : this.state.miningReward, messageMiningReward: `Les Récompences des Mineurs sont maintenant parametré à ${this.state.miningReward}`, messageDifficulty: ''});
+  
 };
 
 render() {
   return (
     <>
-    <Information state={this.state}/>
+    <Information state={this.state} messageMiningReward={this.state.messageMiningReward} messageDifficulty={this.state.messageDifficulty}/>
       <div>
-        <h3>Paramètres :</h3>
+        <h2 style={{marginBottom : '2rem'}}>Paramètres :</h2>
       </div>
       <Grid>
         <Grid.Row>
-          <Grid.Column width={8}>
+          <Grid.Column width={8} >
             <Form onSubmit={this.onSubmitDifficulty}>
               <Form.Field>
                 <label>Difficulté</label>
@@ -43,8 +47,9 @@ render() {
                   labelPosition="right"
                   placeholder={this.state.difficulty}
                   onChange={(event) =>
-                    (this.setState({difficulty : parseInt( event.target.value )}))
+                    (this.setState({difficulty : parseInt( event.target.value )  > 6 ? 6 : parseInt( event.target.value )}))
                   }
+                  style={{marginBottom : '2rem'}}
                 />
                 <Button primary>
                   Appliquer Changement
@@ -67,6 +72,7 @@ render() {
                   onChange={(event) =>
                     (this.setState({miningReward : parseInt( event.target.value )}))
                   }
+                  style={{marginBottom : '2rem'}}
                 />
                 <Button primary>
                 Appliquer Changement

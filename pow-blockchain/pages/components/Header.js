@@ -23,6 +23,13 @@ export default class Header extends Component {
             Pow-Blockchain.js
           </Menu.Item>
         </Link>
+        <Menu.Item
+          name='HowItsWorks'
+          active={this.props.activeMenu === 'HowItsWorks'}
+          onClick={this.handleItemClick}
+        >
+          Comment ça marche ?
+        </Menu.Item>
         <Menu.Menu position="right">
         
         <Menu.Item
@@ -32,9 +39,6 @@ export default class Header extends Component {
         >
           La Blockchain
         </Menu.Item>
-       
-   
-
         <Menu.Item
           name='Params'
           active={this.props.activeMenu === 'Params'}

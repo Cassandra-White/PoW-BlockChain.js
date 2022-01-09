@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Informations from "./Informations";
-import { Button, Grid, Form, Input, Transition } from "semantic-ui-react";
+import { Button, Grid, Form, Input, Transition, Message } from "semantic-ui-react";
 import Information from "./Informations";
 
 import { Transaction } from "../../../blockchain/Transaction";
@@ -22,12 +22,19 @@ export default class Params extends Component {
       amount: 0,
       pendingTransactions : this.pendingTransactions,
       loading : false,
+      messageCreateTransaction : ''
     };
     // console.log(this.TransactionInstance);
   }
 
 
   createTransaction = () => {
+    this.setState({messageCreateTransaction : ''});
+    if(this.state.fromAddress == '' || this.state.toAddress == ''){
+      this.setState({messageCreateTransaction : 'Toutes les addresses de la transaction ne sont pas défini.\nInfo : Si vous n\'avez pas d\'addresse vous pouvez en créer une dans la section Wallet'});
+      return
+    }
+      
     this.TransactionInstance.fromAddress = this.state.walletKeys.publicKey;
     this.TransactionInstance.toAddress = this.state.toAddress;
     this.TransactionInstance.amount = this.state.amount;
@@ -69,9 +76,18 @@ onClickGetPendingTransactions = () => {
     return (
       <>
         <div>
-          <h2>Créer une Transaction :</h2>
-          <p>Envoyez de l'argent à un autre compte</p>
-
+        <Grid style={{marginBottom:"2rem"}}>
+            <Grid.Row>
+              <Grid.Column width={8}>
+                <h2>Créer une Transaction :</h2>
+                <p>Envoyez de l'argent à un autre compte</p>
+              </Grid.Column>
+              <Grid.Column width={8}>
+                <h2>Créer un Wallet :</h2>
+                <p>Créer vos Nouvelles Clés</p>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
           <Grid style={{marginBottom:"2rem"}}>
             <Grid.Row>
               <Grid.Column width={8}>
@@ -79,14 +95,14 @@ onClickGetPendingTransactions = () => {
                 <Grid>
                    <Grid.Row>
                   <Grid.Column width={6}>
-                  <Form.Field>
-                    <label>Depuis :</label>
+                  <Form.Field required>
+                    <label>Depuis l'addresse :</label>
                     
                     <Input
                     
-                      style={{ marginTop: "0.5rem" }}
-                      label="fromAddress"
-                      labelPosition="right"
+                      style={{ marginTop: "0.5rem", width:'10rem' }}
+                      label="Addresse"
+                      labelPosition="left"
                       placeholder={this.state.fromAddress}
                       onChange={(event) =>
                         this.setState({
@@ -97,12 +113,12 @@ onClickGetPendingTransactions = () => {
                   </Form.Field>
 
                   </Grid.Column>
-                  <Grid.Column width={6}>
-                  <Form.Field>
-                    <label>A :</label>
+                  <Grid.Column width={6} style={{marginBottom:'2rem'}}>
+                  <Form.Field required>
+                    <label>À l'addresse :</label>
                     <Input
-                      style={{ marginTop: "0.5rem" }}
-                      label="toAddress"
+                      style={{ marginTop: "0.5rem",  width:'10rem' }}
+                      label="Addresse"
                       labelPosition="right"
                       placeholder={this.state.toAddress}
                       onChange={(event) =>
@@ -114,12 +130,13 @@ onClickGetPendingTransactions = () => {
                   </Form.Field>
                   </Grid.Column>
                   <Grid.Column width={6}>
-                  <Form.Field>
-                    <label>Montant :</label>
+                  <Form.Field required>
+                    <label>Montant de la transaction:</label>
                     <Input
-                  
+                      focus
+                      type='number'
                       style={{ marginTop: "0.5rem" }}
-                      label="amount"
+                      label="Montant"
                       labelPosition="right"
                       placeholder={this.state.amount}
                       onChange={(event) =>
@@ -134,70 +151,18 @@ onClickGetPendingTransactions = () => {
                   <Grid.Column width={16} style={{marginTop:'2rem'}}>
                   <Button primary>Appliquer Changement</Button>
                   </Grid.Column>
+                  <Message 
+                    negative
+                    hidden={this.state.messageCreateTransaction == ''}
+                    header='Error Transaction :'
+                    content={this.state.messageCreateTransaction}
+                  />
                   </Grid.Row>
                  
                   </Grid>
                 </Form>
               </Grid.Column>
-              <Grid.Column width={8}>
-                <Form onSubmit={this.createTransaction}>
-                <Grid>
-                   <Grid.Row>
-                  <Grid.Column width={6}>
-                  <Form.Field>
-                    <label>Depuis :</label>
-                    <Input
-                    
-                      style={{ marginTop: "0.5rem" }}
-                      label="fromAddress"
-                      labelPosition="right"
-                      placeholder={this.state.fromAddress}
-                      onChange={(event) =>
-                        this.setState({
-                          fromAddress: event.target.value,
-                        })
-                      }
-                    />
-                  </Form.Field>
-
-                  </Grid.Column>
-                  <Grid.Column width={6}>
-                  <Form.Field>
-                    <label>A :</label>
-                    <Input
-                      style={{ marginTop: "0.5rem" }}
-                      label="toAddress"
-                      labelPosition="right"
-                      placeholder={this.state.toAddress}
-                      onChange={(event) =>
-                        this.setState({
-                          toAddress: event.target.value,
-                        })
-                      }
-                    />
-                  </Form.Field>
-                  </Grid.Column>
-                  <Form.Field>
-                    <label>Montant :</label>
-                    <Input
-                  
-                      style={{ marginTop: "0.5rem" }}
-                      label="amount"
-                      labelPosition="right"
-                      placeholder={this.state.amount}
-                      onChange={(event) =>
-                        this.setState({
-                          amount: parseInt(event.target.value),
-                        })
-                      }
-                    />
-                    <Button primary>Appliquer Changement</Button>
-                  </Form.Field>
-
-                  </Grid.Row>
-                  </Grid>
-                </Form>
-              </Grid.Column>
+              
             </Grid.Row>
           </Grid>
 
