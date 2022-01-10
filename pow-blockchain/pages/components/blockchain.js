@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import BlockChainCard from './BlockCard'
 import styles from '../../styles/Home.module.css'
-import {Blockchain} from '../../../blockchain/Blockchain';
-import {Block } from '../../../blockchain/Block';
+import {Blockchain} from '../../blockchain/Blockchain';
+import {Block } from '../../blockchain/Block';
 import EC from 'elliptic';
 import TransactionTab from './TransactionsTab';
 import { Button, Card, Image, Grid, Transition } from 'semantic-ui-react'

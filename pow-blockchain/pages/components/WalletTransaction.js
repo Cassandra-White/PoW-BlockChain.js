@@ -13,7 +13,7 @@ import {
 } from "semantic-ui-react";
 import Information from "./Informations";
 
-import { Transaction } from "../../../blockchain/Transaction";
+import { Transaction } from "../../blockchain/Transaction";
 import TransactionTab from "./TransactionsTab";
 import PendingTransactions from "./PendingTransaction";
 import ModuleTransactions from "./ModuleTransactions";

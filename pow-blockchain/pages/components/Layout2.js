@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import EC from 'elliptic';
-import {Blockchain} from '../../../blockchain/Blockchain';
-import {Transaction} from '../../../blockchain/Transaction';
+import {Blockchain} from '../../blockchain/Blockchain';
+import {Transaction} from '../../blockchain/Transaction';
 import TransactionTab from './TransactionsTab';
 
 class BlockChain extends Component {

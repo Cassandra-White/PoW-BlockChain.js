@@ -1,5 +1,5 @@
 import React from "react";
-import { Block } from "../../../blockchain/Block";
+import { Block } from "../../blockchain/Block";
 
 import { Table } from "semantic-ui-react";
 const AddTransactionsTab = (props) => (
