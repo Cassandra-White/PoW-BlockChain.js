@@ -19,6 +19,7 @@ export default function Transactions(props) {
         </Table.Header>
         <Table.Body>
           <TransactionTab
+          
             block={props.block}
             index="0"
             isValid="0"

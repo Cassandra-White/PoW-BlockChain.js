@@ -48,16 +48,11 @@ export default class Params extends Component {
   }
 
   miningPendingTransactions = async ()=> {
-    try {
-      this.setState({loading: true, messageMiningPendingTransactions: ''});
-    } catch (error) {
-      console.log(error)
-    }
-   
+      this.setState({messageMiningPendingTransactions: ''});
     this.props.blockchain.miningPendingTransactions()
     this.setState({pendingTransactions : this.props.blockchain.getPendingTransactions()});
     this.props.getBlocks()
-    this.setState({loading: false,  messageMiningPendingTransactions: 'Le Block à été miné avec succès, vous le retrouverez dans La Blockchain'});
+    this.setState({messageMiningPendingTransactions: 'Le Block à été miné avec succès, vous le retrouverez dans La Blockchain'});
     
 
 }
@@ -92,6 +87,7 @@ onClickGetPendingTransactions = () => {
               <Grid.Column width={8}>
                 <h2>Créer un Wallet :</h2>
                 <p>Créer vos Nouvelles Clés</p>
+                <p>Arrive Bientôt</p>
               </Grid.Column>
             </Grid.Row>
           </Grid>
@@ -174,17 +170,7 @@ onClickGetPendingTransactions = () => {
           </Grid>
 
           <PendingTransactions blockchain={this.props.blockchain} pendingTransactions={this.state.pendingTransactions} miningPendingTransactions={this.miningPendingTransactions} loading={this.state.loading}/>
-          <Message icon
-              loading
-              hidden={this.state.loading == false}
-
-          >
-            <Icon name='circle notched' loading />
-             <Message.Content>
-              <Message.Header>Juste quelques secondes</Message.Header>
-              Vous êtes en train de miner votre block
-            </Message.Content>
-          </Message>
+          
           
           <Message 
                     positive

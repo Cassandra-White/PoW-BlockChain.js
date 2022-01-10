@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import "semantic-ui-css/semantic.min.css";
 import Head from "next/head";
 // import Layout from "./components/Layout";
@@ -15,25 +15,34 @@ import Footer from "./components/Footer";
 import HowItsWorks from "./components/HowItsWorks";
 
 // export default function Home(props) {
-export default class Home extends Component {
-  state = {
-    activeMenu: "Blockscard",
-    blocks: blockchain.getBlocks(),
+  export default function Home() {
+
+  
+  // state = {
+  //   activeMenu: "Blockscard",
+  //   // blocks: [],
+  // };
+
+  const updateBlock = () => {
+    setBlocks(blockchain.getBlocks());
   };
 
-  updateBlock = () => {
-    this.setState({ block: blockchain.getBlocks() });
-  };
-
-  updateActiveMenu = (menu) => {
-    this.setState({ activeMenu: menu });
-    console.log(this.state.activeMenu);
+  const updateActiveMenu = (menu) => {
+     setActiveMenu(menu) ;
+    console.log(activeMenu);
   };
 
   // handleItemClick = (e, { name }) => this.setState({ activeMenu: name })
 
-  render() {
-    console.log(this.props);
+
+    const [blocks, setBlocks] = useState();
+    const [activeMenu, setActiveMenu] = useState()
+
+    useEffect(() => {
+      setBlocks(blockchain.getBlocks())
+      setActiveMenu("Blockscard");
+    }, [])
+    // console.log(this.props);
     return (
       <>
         <Head>
@@ -41,7 +50,7 @@ export default class Home extends Component {
           <meta name="description" content="Proof Of Work Blockchain in JS" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Header updateActiveMenu={this.updateActiveMenu} />
+        <Header updateActiveMenu={updateActiveMenu} />
 
         <div
           className={styles.container}
@@ -74,7 +83,7 @@ export default class Home extends Component {
               </Menu.Item>
             </Menu> */}
 
-            {this.state.activeMenu == "Blockscard" ? (
+            {activeMenu == "Blockscard" ? (
               <>
                 <h1 className={styles.title} >
                   {/* <a href="https://github.com/Cassandra-White/PoW-BlockChain.js" style={{color:'#000000'}}> */}
@@ -91,12 +100,12 @@ export default class Home extends Component {
                 <Card fluid style={{ padding: "3rem" }}>
                   <Blockscard
                     blockchain={blockchain}
-                    blocks={this.state.blocks}
-                    activeItem={this.state.activeItem}
+                    blocks={blocks}
+                    // activeItem={activeItem}
                   />
                 </Card>
               </>
-            ) : this.state.activeMenu == "Params" ? (
+            ) : activeMenu == "Params" ? (
               <>
                 <h1 className={styles.title}>Paramètres</h1>
 
@@ -107,7 +116,7 @@ export default class Home extends Component {
                   <Params blockchain={blockchain} />
                 </Card>
               </>
-            ) : this.state.activeMenu == "AddTransaction" ? (
+            ) : activeMenu == "AddTransaction" ? (
               <>
                 <h1 className={styles.title}>Wallet et Transactions</h1>
 
@@ -118,12 +127,12 @@ export default class Home extends Component {
                 <Card fluid style={{ padding: "3rem" }}>
                   <AddTransaction
                     blockchain={blockchain}
-                    blocks={this.state.blocks}
-                    getBlocks={this.updateBlock}
+                    blocks={blocks}
+                    getBlocks={updateBlock}
                   />
                 </Card>
               </>
-            ) : this.state.activeMenu == "HowItsWorks" ? (
+            ) : activeMenu == "HowItsWorks" ? (
               <>
                 <h1 className={styles.title}>Comment ça marche ?</h1>  
               <Card fluid style={{ padding: "3rem" }}>
@@ -139,4 +148,4 @@ export default class Home extends Component {
       </>
     );
   }
-}
+

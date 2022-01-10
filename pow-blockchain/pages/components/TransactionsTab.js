@@ -30,7 +30,7 @@ const TransactionTab = (props) =>
   ) : (
     props.block.transactions.map((transaction, index) => {
       return (
-        <Table.Row>
+        <Table.Row key={index}>
           <Table.Cell>{index}</Table.Cell>
           <Table.Cell>
             <div style={{ overflow: "auto", width: "25rem" }}>
