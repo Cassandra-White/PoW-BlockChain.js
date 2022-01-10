@@ -47,7 +47,7 @@ class Wallets extends Component {
                   <Card style={{ backgroundColor: "#F9F9F9" }}>
                     <Card.Content>
                       <Card.Header>
-                        Wallet {index == 0 ? "Mineur" : index}
+                        Wallet {index == 0 ? "Mineur" : (index == 1 || index == 2) ? `Exemple ${index}`  : index}
                       </Card.Header>
                     </Card.Content>
                     <Card.Content extra>
