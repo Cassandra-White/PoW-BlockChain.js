@@ -3,16 +3,16 @@ import "semantic-ui-css/semantic.min.css";
 import Head from "next/head";
 // import Layout from "./components/Layout";
 import styles from "../styles/Home.module.css";
-import blockchain from "./components/Layout2";
-import Transactions from "./components/Transactions";
-import Blockscard from "./components/BlocksCard";
-import Params from "./components/Params";
-import WalletTransaction from "./components/WalletTransaction";
-import PendingTransactions from "./components/PendingTransaction";
+import blockchain from "../components/Layout2";
+import Transactions from "../components/Transactions";
+import Blockscard from "../components/BlocksCard";
+import Params from "../components/Params";
+import WalletTransaction from "../components/WalletTransaction";
+import PendingTransactions from "../components/PendingTransaction";
 import { Card, Menu } from "semantic-ui-react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import HowItsWorks from "./components/HowItsWorks";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import HowItsWorks from "../components/HowItsWorks";
 
 // export default function Home(props) {
   export default function Home() {
@@ -98,7 +98,7 @@ import HowItsWorks from "./components/HowItsWorks";
                 </h1>
 
                 <p className={styles.description}>
-                  PoW-BlockChain.js est une démo d'application web faisant
+                  PoW-BlockChain.js est une démo dapplication web faisant
                   tourner une blockchain à validation par Proof of Work en
                   javascripts
                 </p>

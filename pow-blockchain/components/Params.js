@@ -20,20 +20,20 @@ export default class Params extends Component {
     
     if (isNaN(this.state.difficulty)) {
       this.setState({
-        messageErrorDifficulty: `Vous n'avez pas renseigné de difficulté`,
-        messageDifficulty: ``,
-        messageErrorMiningReward: ``,
-        messageMiningReward: ``,
+        messageErrorDifficulty: "Vous n'avez pas renseigné de difficulté",
+        messageDifficulty: "",
+        messageErrorMiningReward: "",
+        messageMiningReward: "",
       });
       return;
     }
     this.props.blockchain.BlockchainInstance.difficulty = this.state.difficulty;
     this.setState({
       difficultySend: this.state.difficulty,
-      messageMiningReward: ``,
-      messageDifficulty: `La difficulté de minage est maintenant parametré sur ${this.state.difficulty}. Attention : Plus la difficulté est grande plus le block mets de temps à être trouvé. Pour ne pas créer un trop grand lag le maximum est 6`,
-      messageErrorMiningReward: ``,
-      messageErrorDifficulty: ``,
+      messageMiningReward: "",
+      messageDifficulty: "La difficulté de minage est maintenant parametré . Attention : Plus la difficulté est grande plus le block mets de temps à être trouvé. Pour ne pas créer un trop grand lag le maximum est 6",
+      messageErrorMiningReward: "",
+      messageErrorDifficulty: "",
     });
     // console.log(this.props.blockchain.BlockchainInstance.difficulty);
   };
@@ -42,9 +42,9 @@ export default class Params extends Component {
     
     if (isNaN(this.state.miningReward)) {
       this.setState({
-        messageErrorMiningReward: `Vous n'avez pas renseigné de récompense`,
+        messageErrorMiningReward: "Vous n'avez pas renseigné de récompense",
         messageMiningReward:"",
-        messageErrorDifficulty: ``,
+        messageErrorDifficulty: "",
         messageMiningReward: "",
       });
       return;
@@ -52,10 +52,10 @@ export default class Params extends Component {
     this.props.blockchain.BlockchainInstance.miningReward = this.state.miningReward;
     this.setState({
       miningRewardSend: this.state.miningReward,
-      messageMiningReward: `Les Récompences des Mineurs sont maintenant parametré à ${this.state.miningReward}`,
+      messageMiningReward: "Les Récompences des Mineurs sont maintenant parametré ",
       messageDifficulty: "",
-      messageErrorDifficulty: ``,
-      messageErrorMiningReward: `` 
+      messageErrorDifficulty: "",
+      messageErrorMiningReward: "" 
     });
   };
 
@@ -79,7 +79,7 @@ export default class Params extends Component {
                 <Form.Field>
                   <label>Difficulté</label>
                   <Input
-                    style={{ marginTop: "0.5rem" }}
+                    style={{ marginTop: "0.5rem",marginBottom: "2rem" }}
                     label="Difficulty"
                     labelPosition="right"
                     placeholder={this.state.difficulty}
@@ -91,7 +91,6 @@ export default class Params extends Component {
                             : parseInt(event.target.value),
                       })
                     }
-                    style={{ marginBottom: "2rem" }}
                   />
                   <Button color='black' fluid>Changer Difficulté</Button>
                 </Form.Field>
@@ -102,7 +101,7 @@ export default class Params extends Component {
                 <Form.Field>
                   <label>Récompence Mineurs</label>
                   <Input
-                    style={{ marginTop: "0.5rem" }}
+                    style={{ marginTop: "0.5rem", marginBottom: "2rem" }}
                     label="Récompence"
                     labelPosition="right"
                     placeholder={this.state.miningReward}
@@ -111,7 +110,6 @@ export default class Params extends Component {
                         miningReward: parseInt(event.target.value),
                       })
                     }
-                    style={{ marginBottom: "2rem" }}
                   />
                   <Button color='black' fluid>Changer Récompence</Button>
                 </Form.Field>

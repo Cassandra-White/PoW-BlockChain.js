@@ -16,7 +16,7 @@ class Layout extends Component {
 
   updateActiveMenu = (menu) => {
     this.setState({ activeMenu: menu });
-    console.log();
+    // console.log();
   };
     render() {
   return (

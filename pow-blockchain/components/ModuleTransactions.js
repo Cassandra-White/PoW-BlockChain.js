@@ -11,7 +11,7 @@ class ModuleTransactions extends Component {
                 <Grid.Row>
                   <Grid.Column width={16}>
                     <h2>Créer une Transaction :</h2>
-                    <p>Envoyez de l'argent à un autre compte</p>
+                    {/* <p>Envoyez de l'argent à un autre compte</p> */}
                   </Grid.Column>
                   
                 </Grid.Row>
@@ -24,10 +24,10 @@ class ModuleTransactions extends Component {
                       <Grid.Row>
                       <Grid.Column width={10} style={{marginBottom:'2rem'}}>
                       <Form.Field required>
-                        <label>Depuis l'addresse :</label>
+                        <label>Depuis l addresse :</label>
                         
                         <Input
-                        
+                          name='fromAddress'
                           style={{ marginTop: "0.5rem" }}
                           label="Addresse Public"
                           labelPosition="right"
@@ -43,8 +43,9 @@ class ModuleTransactions extends Component {
                       </Grid.Column>
                       <Grid.Column width={10} style={{marginBottom:'2rem'}}>
                       <Form.Field required>
-                        <label>À l'addresse :</label>
+                        <label>À l addresse :</label>
                         <Input
+                        name='fromAddress'
                           style={{ marginTop: "0.5rem"}}
                           label="Addresse Public"
                           labelPosition="right"

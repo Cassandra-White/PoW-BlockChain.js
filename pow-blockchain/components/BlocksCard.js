@@ -14,6 +14,7 @@ export default class Blockscard extends Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
+    // console.log(this.props.blocks)
 
     return (
       <>

@@ -1,21 +1,8 @@
 import React from "react";
-import { Block } from "../../blockchain/Block";
 
 import { Table } from "semantic-ui-react";
 const AddTransactionsTab = (props) => (
-  // props.pendTran.length == 0 ? (
-  //     <Table.Row>
-  //         <Table.Cell>{props.index}</Table.Cell>
-  //         <Table.Cell>Aucune Transaction</Table.Cell>
-  //         <Table.Cell>Aucune Transaction</Table.Cell>
-  //         <Table.Cell>Aucune Transaction</Table.Cell>
-  //         <Table.Cell>{props.block.timestamp}</Table.Cell>
 
-  //         <Table.Cell selectable>
-  //         <a href='#'>Edit</a>
-  //         </Table.Cell>
-  //     </Table.Row>
-  // ) : (
 
   <Table.Row>
     {/* {console.log(props)} */}
