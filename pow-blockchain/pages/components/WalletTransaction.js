@@ -51,10 +51,29 @@ export default class Params extends Component {
       return;
     }
 
-    this.TransactionInstance.fromAddress = this.state.walletKeys[0].publicKey;
+    this.TransactionInstance.fromAddress = this.state.fromAddress;
     this.TransactionInstance.toAddress = this.state.toAddress;
     this.TransactionInstance.amount = this.state.amount;
-    this.TransactionInstance.signTransaction(this.state.walletKeys[0].keyObj);
+    const keyObj;
+      let i = 0;
+      while (i < this.state.walletKeys.length){
+        if(this.state.walletKeys[i].publicKey == this.state.fromAddress){
+          keyObj = this.state.walletKeys[i].keyObj;
+          break
+        }
+        i++;
+      }
+      if(keyObj == undefined){
+        this.setState({
+          messageCreateTransaction:
+            "L'address du Wallet d'envoi n'existe pas. Si vous n'en avez pas vous pouvez en créer un dans l'onglet Wallet",
+        });
+        return
+      }
+    console.log(keyObj);
+    // this.TransactionInstance.signTransaction(this.state.walletKeys[0].keyObj);
+    this.TransactionInstance.signTransaction(keyObj);
+
     console.log(this.TransactionInstance);
     this.props.blockchain.BlockchainInstance.addTransaction(
       this.TransactionInstance

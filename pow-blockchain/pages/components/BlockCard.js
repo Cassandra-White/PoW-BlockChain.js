@@ -40,7 +40,15 @@ const BlockChainCard = (props) => (
       <Card.Content extra>
         <h4>Timestamp</h4>
         <div className='ui 'style={{overflow:"hidden",height:"3.5rem"}}>
-          <p style={{color:'#6A96EC'}}> {props.block.timestamp}</p>
+          <p style={{color:'#008000'}}>{props.block.timestamp}</p>
+          <p > {new Intl.DateTimeFormat("en-GB", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+              }).format(props.block.timestamp)}</p>
         </div>
       </Card.Content>
     </Card>

@@ -29,7 +29,7 @@ class ModuleTransactions extends Component {
                         <Input
                         
                           style={{ marginTop: "0.5rem" }}
-                          label="Addresse"
+                          label="Addresse Public"
                           labelPosition="right"
                           placeholder={this.props.state.fromAddress}
                           onChange={(event) =>
@@ -46,7 +46,7 @@ class ModuleTransactions extends Component {
                         <label>À l'addresse :</label>
                         <Input
                           style={{ marginTop: "0.5rem"}}
-                          label="Addresse"
+                          label="Addresse Public"
                           labelPosition="right"
                           placeholder={this.props.state.toAddress}
                           onChange={(event) =>

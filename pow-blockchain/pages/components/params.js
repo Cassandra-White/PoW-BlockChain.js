@@ -93,7 +93,7 @@ export default class Params extends Component {
                     }
                     style={{ marginBottom: "2rem" }}
                   />
-                  <Button>Appliquer Changement</Button>
+                  <Button color='black' fluid>Changer Difficulté</Button>
                 </Form.Field>
               </Form>
             </Grid.Column>
@@ -113,7 +113,7 @@ export default class Params extends Component {
                     }
                     style={{ marginBottom: "2rem" }}
                   />
-                  <Button >Appliquer Changement</Button>
+                  <Button color='black' fluid>Changer Récompence</Button>
                 </Form.Field>
               </Form>
             </Grid.Column>

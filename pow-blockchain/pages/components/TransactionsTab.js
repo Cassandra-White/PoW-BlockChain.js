@@ -24,7 +24,7 @@ const TransactionTab = (props) =>
       </Table.Cell>
 
       <Table.Cell selectable>
-        <a href="#">Edit</a>
+        <a href="#">Aucune Transaction</a>
       </Table.Cell>
     </Table.Row>
   ) : (
