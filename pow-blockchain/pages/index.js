@@ -7,7 +7,7 @@ import blockchain from "./components/Layout2";
 import Transactions from "./components/Transactions";
 import Blockscard from "./components/BlocksCard";
 import Params from "./components/Params";
-import AddTransaction from "./components/AddTransaction";
+import WalletTransaction from "./components/WalletTransaction";
 import PendingTransactions from "./components/PendingTransaction";
 import { Card, Menu } from "semantic-ui-react";
 import Header from "./components/Header";
@@ -32,17 +32,23 @@ import HowItsWorks from "./components/HowItsWorks";
     console.log(activeMenu);
   };
 
+  const updateWallets = () => {
+    return setWallets(blockchain.walletKeys);
+  }
+
   // handleItemClick = (e, { name }) => this.setState({ activeMenu: name })
 
 
     const [blocks, setBlocks] = useState();
-    const [activeMenu, setActiveMenu] = useState()
+    const [activeMenu, setActiveMenu] = useState();
+    const [wallets, setWallets] = useState();
 
     useEffect(() => {
-      setBlocks(blockchain.getBlocks())
+      setBlocks(blockchain.getBlocks());
       setActiveMenu("Blockscard");
+      setWallets(blockchain.walletKeys);
     }, [])
-    // console.log(this.props);
+    console.log(wallets);
     return (
       <>
         <Head>
@@ -125,10 +131,12 @@ import HowItsWorks from "./components/HowItsWorks";
                   creant des transactions et en minant
                 </p>
                 <Card fluid style={{ padding: "3rem" }}>
-                  <AddTransaction
+                  <WalletTransaction
                     blockchain={blockchain}
                     blocks={blocks}
                     getBlocks={updateBlock}
+                    wallets={wallets}
+                    updateWallets={updateWallets}
                   />
                 </Card>
               </>

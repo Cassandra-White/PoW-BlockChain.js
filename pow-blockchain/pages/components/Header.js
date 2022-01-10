@@ -54,7 +54,7 @@ export default class Header extends Component {
           active={this.props.activeMenu === 'AddTransaction'}
           onClick={this.handleItemClick}
         >
-          Créer une transaction
+          Wallet et Transactions
         </Menu.Item>
         </Menu.Menu>
 

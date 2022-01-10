@@ -38,6 +38,7 @@ export default class PendingTransactions extends Component {
     // console.log(this.state.pendingTransactions);
     return (
       <div>
+        <h2>Transactions en attentent :</h2> 
         <Table celled>
           <Table.Header>
             <Table.Row>
@@ -45,15 +46,13 @@ export default class PendingTransactions extends Component {
               <Table.HeaderCell>Depuis</Table.HeaderCell>
               <Table.HeaderCell>A</Table.HeaderCell>
               <Table.HeaderCell>Montant</Table.HeaderCell>
-              <Table.HeaderCell>Timestamp</Table.HeaderCell>
-              <Table.HeaderCell>Valide ?</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
             {this.props.pendingTransactions.map((pendTran, index) => {
               return (
                 <AddTransactionsTab
-                    key = {index}
+                  key = {index}
                   pendTran={pendTran}
                   index={index}
                   isValid="0"

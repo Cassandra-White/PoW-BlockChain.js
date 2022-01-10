@@ -21,15 +21,15 @@ const AddTransactionsTab = (props) => (
     {/* {console.log(props)} */}
     <Table.Cell>{props.index}</Table.Cell>
     <Table.Cell width={1}>
-    <div style={{ overflow: "auto", width: "25rem" }}>
-      {props.pendTran.fromAddress === undefined
+    <div style={{ overflow: "auto", maxWidth: "15rem" }}>
+      {props.pendTran.fromAddress === null
         ? "Le System"
         : props.pendTran.fromAddress}
     </div>
     </Table.Cell>
     <Table.Cell>
-      <div style={{ overflow: "auto", width: "25rem" }}>
-        {props.pendTran.toAddress === undefined
+      <div style={{ overflow: "auto", maxWidth: "15rem" }}>
+        {props.pendTran.toAddress === null
           ? "Le System"
           : props.pendTran.toAddress}
       </div>
@@ -37,19 +37,9 @@ const AddTransactionsTab = (props) => (
     <Table.Cell>
       <div>{props.pendTran.amount}</div>
       <span style={{ fontSize: "smaller" }}>
-        {props.pendTran.fromAddress === undefined ? "Récomponse mineur" : ""}
+        {props.pendTran.fromAddress === null ? "Récomponse mineur" : ""}
       </span>
     </Table.Cell>
-    {/* <Table.Cell>
-                                <div>{props.block.timestamp}</div>
-                                <span style={{fontSize:"smaller"}}>{
-                                        new Intl.DateTimeFormat('en-GB', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(props.block.timestamp)}</span>
-                            </Table.Cell> */}
-    <Table.Cell>{props.pendTran.isValid() ? "oui" : "non"}</Table.Cell>
-
-    {/* <Table.Cell selectable>
-                            <a href='#'>Edit</a>
-                            </Table.Cell> */}
   </Table.Row>
 );
 

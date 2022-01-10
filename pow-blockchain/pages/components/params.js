@@ -93,7 +93,7 @@ export default class Params extends Component {
                     }
                     style={{ marginBottom: "2rem" }}
                   />
-                  <Button primary>Appliquer Changement</Button>
+                  <Button>Appliquer Changement</Button>
                 </Form.Field>
               </Form>
             </Grid.Column>
@@ -113,7 +113,7 @@ export default class Params extends Component {
                     }
                     style={{ marginBottom: "2rem" }}
                   />
-                  <Button primary>Appliquer Changement</Button>
+                  <Button >Appliquer Changement</Button>
                 </Form.Field>
               </Form>
             </Grid.Column>

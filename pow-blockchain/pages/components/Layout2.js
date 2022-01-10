@@ -12,6 +12,8 @@ class BlockChain extends Component {
         this.walletKeys = [];
         this.BlockchainInstance.difficulty = 2;
         this.generateWalletKeys();
+        this.generateWalletKeys();
+        this.generateWalletKeys();
         this.BlockchainInstance.miningPendingTransactions("mineur-address");
         // this.BlockchainInstance.miningPendingTransactions("mineur-address");
     
