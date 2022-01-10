@@ -17,7 +17,7 @@ export default class PendingTransactions extends Component {
   miningPendingTransactions = async (event) =>{
     event.preventDefault();
         await this.setState({ loading: true});
-      console.log(this.state.loading);
+      // console.log(this.state.loading);
       try {
         await this.props.miningPendingTransactions()
         
@@ -26,7 +26,7 @@ export default class PendingTransactions extends Component {
       }
         
       await this.setState({loading:false});
-      console.log(this.state.loading);
+      // console.log(this.state.loading);
   }
 
   // onClickGetPendingTransactions = () => {

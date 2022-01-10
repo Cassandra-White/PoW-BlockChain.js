@@ -7,7 +7,7 @@ export default class Information extends Component {
     
 
     render(){
-        console.log(this.props.messageMiningReward);
+        // console.log(this.props.messageMiningReward);
     return (
         <div style={{marginBottom : '5rem'}}>
         <div style={{marginBottom : '2rem'}}>

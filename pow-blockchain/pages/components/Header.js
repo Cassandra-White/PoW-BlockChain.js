@@ -8,7 +8,7 @@ export default class Header extends Component {
     activeMenu : "Blockscard"
   }
   handleItemClick = (e, { name }) => {
-    console.log(name);
+    // console.log(name);
     this.setState({ activeMenu: name })
     this.props.updateActiveMenu(name);
   };

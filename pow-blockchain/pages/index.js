@@ -29,7 +29,7 @@ import HowItsWorks from "./components/HowItsWorks";
 
   const updateActiveMenu = (menu) => {
      setActiveMenu(menu) ;
-    console.log(activeMenu);
+    // console.log(activeMenu);
   };
 
   const updateWallets = () => {
@@ -48,7 +48,7 @@ import HowItsWorks from "./components/HowItsWorks";
       setActiveMenu("Blockscard");
       setWallets(blockchain.walletKeys);
     }, [])
-    console.log(wallets);
+    // console.log(wallets);
     return (
       <>
         <Head>
