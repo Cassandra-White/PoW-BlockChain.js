@@ -64,7 +64,7 @@ export default class PendingTransactions extends Component {
         </Table>
 
         <Button
-          loading={this.state.loading}
+          loading={this.state.loading == true}
           fluid
           secondary
           onClick={this.miningPendingTransactions}

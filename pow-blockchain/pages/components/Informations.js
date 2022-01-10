@@ -21,12 +21,21 @@ export default class Information extends Component {
                         header="Changement : Difficulté de minage"
                         content={this.props.messageDifficulty}
                     />
+                    <Message negative hidden={this.props.messageErrorDifficulty == ''}
+                        header="Error : Difficulté"
+                        content={this.props.messageErrorDifficulty}
+                    />
                     </Grid.Column>
                     <Grid.Column width={8}>
                     <h3>Récompence Mineurs :  {this.props.state.miningRewardSend}</h3>
                     <Message positive hidden={this.props.messageMiningReward == ''}
                         header="Changement : Récompences Mineurs"
                         content={this.props.messageMiningReward}
+                    />
+
+                    <Message negative hidden={this.props.messageErrorMiningReward == ''}
+                        header="Error : Récompences Mineurs"
+                        content={this.props.messageErrorMiningReward}
                     />
                     
                         

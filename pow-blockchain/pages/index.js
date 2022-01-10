@@ -77,9 +77,9 @@ export default class Home extends Component {
             {this.state.activeMenu == "Blockscard" ? (
               <>
                 <h1 className={styles.title} >
-                  <a href="https://github.com/Cassandra-White/PoW-BlockChain.js" style={{color:'#000000'}}>
-                    GitHub : PoW-Blockchain.js
-                  </a>
+                  {/* <a href="https://github.com/Cassandra-White/PoW-BlockChain.js" style={{color:'#000000'}}> */}
+                    La Blockchain
+                  {/* </a> */}
                 </h1>
 
                 <p className={styles.description}>
@@ -98,7 +98,7 @@ export default class Home extends Component {
               </>
             ) : this.state.activeMenu == "Params" ? (
               <>
-                <h1 className={styles.title}>Paramètres :</h1>
+                <h1 className={styles.title}>Paramètres</h1>
 
                 <p className={styles.description}>
                   Changez la difficulté de minage et les récompences des Mineurs

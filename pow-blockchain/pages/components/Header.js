@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React , {Component} from "react";
-import { Menu } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react';
+import { Icon } from 'semantic-ui-react'
 
 export default class Header extends Component {
   state={
@@ -16,13 +17,15 @@ export default class Header extends Component {
   render() {
     return (
       <Menu >
-        <Link href="/">
+       
           <Menu.Item
             name='home'
           >
-            Pow-Blockchain.js
+             <a href="https://github.com/Cassandra-White/PoW-BlockChain.js">
+             <Icon name='github' />Pow-Blockchain.js
+            </a>
           </Menu.Item>
-        </Link>
+        
         <Menu.Item
           name='HowItsWorks'
           active={this.props.activeMenu === 'HowItsWorks'}

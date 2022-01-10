@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Informations from "./Informations";
-import { Button, Grid, Form, Input, Transition, Message } from "semantic-ui-react";
+import { Button, Grid, Form, Input, Transition, Message, Icon } from "semantic-ui-react";
 import Information from "./Informations";
 
 import { Transaction } from "../../../blockchain/Transaction";
@@ -22,7 +22,8 @@ export default class Params extends Component {
       amount: 0,
       pendingTransactions : this.pendingTransactions,
       loading : false,
-      messageCreateTransaction : ''
+      messageCreateTransaction : '',
+      messageMiningPendingTransactions : ''
     };
     // console.log(this.TransactionInstance);
   }
@@ -46,12 +47,18 @@ export default class Params extends Component {
     this.setState({pendingTransactions : this.props.blockchain.getPendingTransactions()})
   }
 
-  miningPendingTransactions = ()=> {
-    this.setState({loading: true});
+  miningPendingTransactions = async ()=> {
+    try {
+      this.setState({loading: true, messageMiningPendingTransactions: ''});
+    } catch (error) {
+      console.log(error)
+    }
+   
     this.props.blockchain.miningPendingTransactions()
     this.setState({pendingTransactions : this.props.blockchain.getPendingTransactions()});
     this.props.getBlocks()
-    this.setState({loading: false});
+    this.setState({loading: false,  messageMiningPendingTransactions: 'Le Block à été miné avec succès, vous le retrouverez dans La Blockchain'});
+    
 
 }
 
@@ -70,7 +77,7 @@ onClickGetPendingTransactions = () => {
   // };
 
   render() {
-    // console.log(this.TransactionInstance);
+   console.log("IIIIIICCCCCCCIIIII",this.state.loading);
     // console.log(this.state.walletKeys.publicKey);
     
     return (
@@ -167,6 +174,25 @@ onClickGetPendingTransactions = () => {
           </Grid>
 
           <PendingTransactions blockchain={this.props.blockchain} pendingTransactions={this.state.pendingTransactions} miningPendingTransactions={this.miningPendingTransactions} loading={this.state.loading}/>
+          <Message icon
+              loading
+              hidden={this.state.loading == false}
+
+          >
+            <Icon name='circle notched' loading />
+             <Message.Content>
+              <Message.Header>Juste quelques secondes</Message.Header>
+              Vous êtes en train de miner votre block
+            </Message.Content>
+          </Message>
+          
+          <Message 
+                    positive
+                    hidden={this.state.messageMiningPendingTransactions == ''}
+                    header='Block Miné :'
+                    content={this.state.messageMiningPendingTransactions}
+                  />
+                  
         </div>
       </>
     );
