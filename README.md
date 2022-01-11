@@ -20,10 +20,6 @@ PoW-BlockChain.js est une démo d'application web faisant tourner une blockchain
 
 Démo: [Link](https://pow-blockchain-js.vercel.app/)
 
-Screen :
-| ![Blockchain](https://github.com/Cassandra-White/PoW-BlockChain.js/blob/main/images/1.blockchainExemple.png?raw=true) | ![Transaction](https://github.com/Cassandra-White/PoW-BlockChain.js/blob/main/images/2.transactionExemple.png?raw=true) |
-| ------------ | ------------- |
-| ![Wallets](https://github.com/Cassandra-White/PoW-BlockChain.js/blob/main/images/3.walletExemple.png?raw=true) | ![Params](https://github.com/Cassandra-White/PoW-BlockChain.js/blob/main/images/4.paramsExemple.png?raw=true) |
 
  ## VS Code 
  
@@ -63,4 +59,10 @@ npm install
 ```
 npm run dev
 ```
+
+## Screen
+
+| ![Blockchain](https://github.com/Cassandra-White/PoW-BlockChain.js/blob/main/images/1.blockchainExemple.png?raw=true) | ![Transaction](https://github.com/Cassandra-White/PoW-BlockChain.js/blob/main/images/2.transactionExemple.png?raw=true) |
+| ------------ | ------------- |
+| ![Wallets](https://github.com/Cassandra-White/PoW-BlockChain.js/blob/main/images/3.walletExemple.png?raw=true) | ![Params](https://github.com/Cassandra-White/PoW-BlockChain.js/blob/main/images/4.paramsExemple.png?raw=true) |
  
