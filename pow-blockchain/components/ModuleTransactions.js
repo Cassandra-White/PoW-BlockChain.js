@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Button, Grid, Form, Input, Transition, Message, Icon, Menu, Segment } from "semantic-ui-react";
+import { Button, Grid, Form, Input, Message} from "semantic-ui-react";
 
 class ModuleTransactions extends Component {
 

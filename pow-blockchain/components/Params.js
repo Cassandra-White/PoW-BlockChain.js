@@ -31,7 +31,7 @@ export default class Params extends Component {
     this.setState({
       difficultySend: this.state.difficulty,
       messageMiningReward: "",
-      messageDifficulty: "La difficulté de minage est maintenant parametré . Attention : Plus la difficulté est grande plus le block mets de temps à être trouvé. Pour ne pas créer un trop grand lag le maximum est 6",
+      messageDifficulty: "La difficulté de minage est maintenant parametré . Attention : Plus la difficulté est grande plus le block mets de temps à être trouvé. Pour ne pas créer un trop grand lag le maximum est 5",
       messageErrorMiningReward: "",
       messageErrorDifficulty: "",
     });
@@ -86,8 +86,8 @@ export default class Params extends Component {
                     onChange={(event) =>
                       this.setState({
                         difficulty:
-                          parseInt(event.target.value) > 6
-                            ? 6
+                          parseInt(event.target.value) > 5
+                            ? 5
                             : parseInt(event.target.value),
                       })
                     }

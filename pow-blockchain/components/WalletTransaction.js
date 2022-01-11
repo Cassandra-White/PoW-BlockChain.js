@@ -1,27 +1,12 @@
 import React, { Component } from "react";
-import Informations from "./Informations";
-import {
-  Button,
-  Grid,
-  Form,
-  Input,
-  Transition,
-  Message,
-  Icon,
-  Menu,
-  Segment,
-} from "semantic-ui-react";
-import Information from "./Informations";
+import { Message, Menu } from "semantic-ui-react";
 
 import { Transaction } from "../blockchain/Transaction";
-import TransactionTab from "./TransactionsTab";
 import PendingTransactions from "./PendingTransaction";
 import ModuleTransactions from "./ModuleTransactions";
-import Wallets from './Wallets';
+import Wallets from "./Wallets";
 
 export default class Params extends Component {
-  // export default function Params(props) {
-
   constructor(props) {
     super(props);
     this.TransactionInstance = new Transaction();
@@ -37,9 +22,8 @@ export default class Params extends Component {
       messageCreateTransaction: "",
       messageMiningPendingTransactions: "",
       activeItem: "Transactions",
-      keyObj: {}
+      keyObj: {},
     };
-    // console.log(this.TransactionInstance);
   }
 
   createTransaction = () => {
@@ -52,31 +36,34 @@ export default class Params extends Component {
       return;
     }
 
+    if (isNaN(this.state.amount)) {
+      this.setState({
+        messageCreateTransaction:
+          "Le Montant de la transaction n'est' pas défini.",
+      });
+      return;
+    }
+
     this.TransactionInstance.fromAddress = this.state.fromAddress;
     this.TransactionInstance.toAddress = this.state.toAddress;
     this.TransactionInstance.amount = this.state.amount;
-      let i = 0;
-      
-      while (i < this.state.walletKeys.length - 1){
-        if(this.state.walletKeys[i].publicKey == this.state.fromAddress){
-          break
-        }
-        i++;
-      }
-      // console.log(this.state.walletKeys[1].keyObj) 
-      // console.log("Et Enfin : ",i)
-      if(this.state.walletKeys[i].publicKey != this.state.fromAddress){
-        this.setState({
-          messageCreateTransaction:
-            "L'address du Wallet d'envoi n'existe pas. Si vous n'en avez pas vous pouvez en créer un dans l'onglet Wallet",
-        });
-        return
-      }
-    
-    this.TransactionInstance.signTransaction(this.state.walletKeys[i].keyObj);
-    // this.TransactionInstance.signTransaction(this.state.keyObj);
+    let i = 0;
 
-    // console.log(this.TransactionInstance);
+    while (i < this.state.walletKeys.length - 1) {
+      if (this.state.walletKeys[i].publicKey == this.state.fromAddress) {
+        break;
+      }
+      i++;
+    }
+    if (this.state.walletKeys[i].publicKey != this.state.fromAddress) {
+      this.setState({
+        messageCreateTransaction:
+          "L'address du Wallet d'envoi n'existe pas. Si vous n'en avez pas vous pouvez en créer un dans l'onglet Wallet",
+      });
+      return;
+    }
+
+    this.TransactionInstance.signTransaction(this.state.walletKeys[i].keyObj);
     this.props.blockchain.BlockchainInstance.addTransaction(
       this.TransactionInstance
     );
@@ -107,47 +94,34 @@ export default class Params extends Component {
   };
 
   updateFromAddress = (event) => {
-      this.setState({fromAddress : event});
-  }
+    this.setState({ fromAddress: event });
+  };
 
   updateToAddress = (event) => {
-    this.setState({toAddress : event});
-}
+    this.setState({ toAddress: event });
+  };
 
-updateAmount = (event) => {
-  this.setState({amount : event});
-}
-updateWalletKeys = () => {
-  this.setState({walletKeys : this.props.blockchain.walletKeys});
-}
+  updateAmount = (event) => {
+    this.setState({ amount: event });
+  };
+  updateWalletKeys = () => {
+    this.setState({ walletKeys: this.props.blockchain.walletKeys });
+  };
 
-updateKeyObj =(data) => {
-  // console.log("Ca passe aussi ici", data);
-  this.setState({keyObj: data})
-}
+  updateKeyObj = (data) => {
+    this.setState({ keyObj: data });
+  };
 
-createWallet = () => {
-  this.props.blockchain.generateWalletKeys();
-  this.setState({walletKeys : this.props.blockchain.walletKeys})
-}
-
-
-
-  // onSubmitAddTransaction = async (event) => {
-  //   console.log(this.props.blockchain.BlockchainInstance)
-  // this.props.blockchain.BlockchainInstance.
-  // console.log(this.props.blockchain.BlockchainInstance.difficulty);
-  // };
+  createWallet = () => {
+    this.props.blockchain.generateWalletKeys();
+    this.setState({ walletKeys: this.props.blockchain.walletKeys });
+  };
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-    // console.log("IIIIIICCCCCCCIIIII", this.state.loading);
-    // console.log(this.state.walletKeys.publicKey);
-
     return (
       <>
-      
         <div>
           <Menu attached="top" tabular>
             <Menu.Item
@@ -165,14 +139,20 @@ createWallet = () => {
         </div>
         <div>
           {this.state.activeItem === "Transactions" ? (
-              <ModuleTransactions createTransaction={this.createTransaction} updateFromAddress={this.updateFromAddress} updateToAddress={this.updateToAddress} updateAmount={this.updateAmount} state={this.state} />
+            <ModuleTransactions
+              createTransaction={this.createTransaction}
+              updateFromAddress={this.updateFromAddress}
+              updateToAddress={this.updateToAddress}
+              updateAmount={this.updateAmount}
+              state={this.state}
+            />
           ) : (
-          
-           <Wallets walletKeys={this.state.walletKeys} blockchain={this.props.blockchain} createWallet={this.createWallet}/>
-          
+            <Wallets
+              walletKeys={this.state.walletKeys}
+              blockchain={this.props.blockchain}
+              createWallet={this.createWallet}
+            />
           )}
-
-          
 
           {/* /////////////////////////////////////////////////////////// */}
 

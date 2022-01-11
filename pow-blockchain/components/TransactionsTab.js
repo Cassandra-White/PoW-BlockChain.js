@@ -1,6 +1,4 @@
 import React from "react";
-import { Block } from "../blockchain/Block";
-
 import { Table } from "semantic-ui-react";
 
 const TransactionTab = (props) =>
@@ -34,14 +32,14 @@ const TransactionTab = (props) =>
         <Table.Row key={index}>
           <Table.Cell>{index}</Table.Cell>
           <Table.Cell>
-            <div style={{ overflow: "auto", width: "25rem" }}>
+            <div style={{ overflow: "auto", maxWidth: "15rem" }}>
               {transaction.fromAddress === null
                 ? "Le System"
                 : transaction.fromAddress}
             </div>
           </Table.Cell>
           <Table.Cell>
-            <div style={{ overflow: "auto", width: "25rem" }}>
+            <div style={{ overflow: "auto", maxWidth: "15rem" }}>
               {transaction.toAddress}
             </div>
           </Table.Cell>
@@ -65,10 +63,6 @@ const TransactionTab = (props) =>
             </span>
           </Table.Cell>
           <Table.Cell>{transaction.isValid() ? "oui" : "non"}</Table.Cell>
-
-          {/* <Table.Cell selectable>
-                            <a href='#'>Edit</a>
-                            </Table.Cell> */}
         </Table.Row>
       );
     })
