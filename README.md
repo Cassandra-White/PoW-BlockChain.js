@@ -58,7 +58,7 @@ cd PoW-BlockChain.js/pow-blockchain.js/
 npm install
 ```
 
-## Deploy
+## Déployer
 
 ```
 npm run dev
