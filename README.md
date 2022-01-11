@@ -29,4 +29,38 @@ Screen :
  
  Vous pouvez voir et tester le code sur [Visual Studio Code Online](https://github.dev/Cassandra-White/PoW-BlockChain.js)
 
+## Dépendences
+
+    
+| Tools                      | Versions |
+| -------------------------  | -------- |
+| npm                        | 8.3.0    |
+| nodejs                     | 16.6.2   |
+| crypto-js                  | 4.1.1    |
+| elliptic                   | 6.5.4    |
+| next                       | 12.0.7   |
+| react                      | 17.0.2   |
+| react-dom                  | 17.0.2   |
+| semantic-ui-css            | 2.4.1    |
+| semantic-ui-react          | 2.0.4    |
+
+
+## Clone
+
+```
+git clone git@github.com:Cassandra-White/PoW-BlockChain.js.git
+```
+
+## Installer
+
+```
+cd PoW-BlockChain.js/pow-blockchain.js/
+npm install
+```
+
+## Deploy
+
+```
+npm run dev
+```
  
