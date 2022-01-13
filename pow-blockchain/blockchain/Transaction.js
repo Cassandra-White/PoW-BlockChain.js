@@ -32,13 +32,8 @@ class Transaction{
         }
 
         const publicKey = ec.keyFromPublic(this.fromAddress, 'hex');
-        return publicKey.verify(this.calculateHash(), this.signature);
-
-         
+        return publicKey.verify(this.calculateHash(), this.signature); 
     }
-
 }
-
-
 
 module.exports.Transaction = Transaction;

@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import Informations from "./Informations";
 import { Button, Grid, Form, Input } from "semantic-ui-react";
 import Information from "./Informations";
 
 export default class Params extends Component {
-  // export default function Params(props) {
   state = {
     difficulty: this.props.blockchain.BlockchainInstance.difficulty,
     miningReward: this.props.blockchain.BlockchainInstance.miningReward,
@@ -17,7 +15,6 @@ export default class Params extends Component {
   };
 
   onSubmitDifficulty = async (event) => {
-    
     if (isNaN(this.state.difficulty)) {
       this.setState({
         messageErrorDifficulty: "Vous n'avez pas renseigné de difficulté",
@@ -31,19 +28,18 @@ export default class Params extends Component {
     this.setState({
       difficultySend: this.state.difficulty,
       messageMiningReward: "",
-      messageDifficulty: "La difficulté de minage est maintenant parametré . Attention : Plus la difficulté est grande plus le block mets de temps à être trouvé. Pour ne pas créer un trop grand lag le maximum est 4",
+      messageDifficulty:
+        "La difficulté de minage est maintenant parametré . Attention : Plus la difficulté est grande plus le block mets de temps à être trouvé. Pour ne pas créer un trop grand lag le maximum est 4",
       messageErrorMiningReward: "",
       messageErrorDifficulty: "",
     });
-    // console.log(this.props.blockchain.BlockchainInstance.difficulty);
   };
 
   onSubmitMiningReward = async (event) => {
-    
     if (isNaN(this.state.miningReward)) {
       this.setState({
         messageErrorMiningReward: "Vous n'avez pas renseigné de récompense",
-        messageMiningReward:"",
+        messageMiningReward: "",
         messageErrorDifficulty: "",
         messageMiningReward: "",
       });
@@ -52,10 +48,11 @@ export default class Params extends Component {
     this.props.blockchain.BlockchainInstance.miningReward = this.state.miningReward;
     this.setState({
       miningRewardSend: this.state.miningReward,
-      messageMiningReward: "Les Récompences des Mineurs sont maintenant parametré ",
+      messageMiningReward:
+        "Les Récompences des Mineurs sont maintenant parametré ",
       messageDifficulty: "",
       messageErrorDifficulty: "",
-      messageErrorMiningReward: "" 
+      messageErrorMiningReward: "",
     });
   };
 
@@ -79,7 +76,7 @@ export default class Params extends Component {
                 <Form.Field>
                   <label>Difficulté</label>
                   <Input
-                    style={{ marginTop: "0.5rem",marginBottom: "2rem" }}
+                    style={{ marginTop: "0.5rem", marginBottom: "2rem" }}
                     label="Difficulty"
                     labelPosition="right"
                     placeholder={this.state.difficulty}
@@ -92,7 +89,9 @@ export default class Params extends Component {
                       })
                     }
                   />
-                  <Button color='black' fluid>Changer Difficulté</Button>
+                  <Button color="black" fluid>
+                    Changer Difficulté
+                  </Button>
                 </Form.Field>
               </Form>
             </Grid.Column>
@@ -111,7 +110,9 @@ export default class Params extends Component {
                       })
                     }
                   />
-                  <Button color='black' fluid>Changer Récompence</Button>
+                  <Button color="black" fluid>
+                    Changer Récompence
+                  </Button>
                 </Form.Field>
               </Form>
             </Grid.Column>

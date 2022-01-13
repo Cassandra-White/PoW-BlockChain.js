@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Message, Menu } from "semantic-ui-react";
-
 import { Transaction } from "../blockchain/Transaction";
 import PendingTransactions from "./PendingTransaction";
 import ModuleTransactions from "./ModuleTransactions";

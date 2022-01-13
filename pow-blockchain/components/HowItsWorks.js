@@ -1,22 +1,15 @@
-import React, { Component } from 'react';
-import { Card } from 'semantic-ui-react';
+import React, { Component } from "react";
 
 class HowItsWorks extends Component {
-
-    render() {
-        return (
-            <>
-           
-            <Card>
-            <div>
-                <h1>Bientôt !</h1>
-            </div>
-            </Card>
-        </>
-        );
-    }
+  render() {
+    return (
+      <>
+        <div>
+          <h1>Bientôt !</h1>
+        </div>
+      </>
+    );
+  }
 }
-
-
 
 export default HowItsWorks;

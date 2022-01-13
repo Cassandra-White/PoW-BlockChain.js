@@ -3,19 +3,14 @@ import { Card, Grid } from "semantic-ui-react";
 import BlockChainCard from "./BlockCard";
 import Transactions from "./Transactions";
 
-
-
 export default class Blockscard extends Component {
-    
   state = {
-      activeItem : 0
-  }
-    
+    activeItem: 0,
+  };
+
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-    // console.log(this.props.blocks)
-
     return (
       <>
         <Grid>
@@ -24,18 +19,12 @@ export default class Blockscard extends Component {
               return (
                 <Grid.Column width={5} key={index + 1000}>
                   <Card
-                    
                     style={{ margin: "0.5rem" }}
-                    
                     name={index}
-                    // active={this.state.activeItem === index}
-                    onClick={ () => {
-                      this.setState({activeItem : index})
-                      this.handleItemClick
-                    }
-                      
-                     
-                    }
+                    onClick={() => {
+                      this.setState({ activeItem: index });
+                      this.handleItemClick;
+                    }}
                   >
                     <BlockChainCard block={block} index={index} />
                   </Card>
@@ -44,8 +33,14 @@ export default class Blockscard extends Component {
             })}
           </Grid.Row>
         </Grid>
-
-        <Transactions block={this.props.blockchain.BlockchainInstance.chain[this.state.activeItem]} activeItem={this.state.activeItem}/>
+        <Transactions
+          block={
+            this.props.blockchain.BlockchainInstance.chain[
+              this.state.activeItem
+            ]
+          }
+          activeItem={this.state.activeItem}
+        />
       </>
     );
   }

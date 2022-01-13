@@ -1,17 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import {
-  Button,
-  Grid,
-  Form,
-  Input,
-  Transition,
-  Message,
-  Icon,
-  Menu,
-  Segment,
-  Card,
-} from "semantic-ui-react";
+import { Button, Grid, Icon, Card } from "semantic-ui-react";
 
 class Wallets extends Component {
   render() {
@@ -47,7 +35,12 @@ class Wallets extends Component {
                   <Card style={{ backgroundColor: "#F9F9F9" }}>
                     <Card.Content>
                       <Card.Header>
-                        Wallet {index == 0 ? "Mineur" : (index == 1 || index == 2) ? `Exemple ${index}`  : index}
+                        Wallet{" "}
+                        {index == 0
+                          ? "Mineur"
+                          : index == 1 || index == 2
+                          ? `Exemple ${index}`
+                          : index}
                       </Card.Header>
                     </Card.Content>
                     <Card.Content extra>

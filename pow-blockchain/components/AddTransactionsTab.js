@@ -1,18 +1,15 @@
 import React from "react";
-
 import { Table } from "semantic-ui-react";
+
 const AddTransactionsTab = (props) => (
-
-
   <Table.Row>
-    {/* {console.log(props)} */}
     <Table.Cell>{props.index}</Table.Cell>
     <Table.Cell width={1}>
-    <div style={{ overflow: "auto", maxWidth: "15rem" }}>
-      {props.pendTran.fromAddress === null
-        ? "Le System"
-        : props.pendTran.fromAddress}
-    </div>
+      <div style={{ overflow: "auto", maxWidth: "15rem" }}>
+        {props.pendTran.fromAddress === null
+          ? "Le System"
+          : props.pendTran.fromAddress}
+      </div>
     </Table.Cell>
     <Table.Cell>
       <div style={{ overflow: "auto", maxWidth: "15rem" }}>
@@ -29,7 +26,5 @@ const AddTransactionsTab = (props) => (
     </Table.Cell>
   </Table.Row>
 );
-
-// )
 
 export default AddTransactionsTab;

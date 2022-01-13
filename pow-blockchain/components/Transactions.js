@@ -3,7 +3,6 @@ import { Table } from "semantic-ui-react";
 import TransactionTab from "./TransactionsTab";
 
 export default function Transactions(props) {
-    // console.log(props.block);
   return (
     <>
       <Table celled>
